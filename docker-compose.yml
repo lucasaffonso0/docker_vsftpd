@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+    ftp:
+       build: .
+       environment:
+           - FTP_USER=username
+           - FTP_PASS=password
+           - PASV_ADDRESS=127.0.0.1
+       ports:
+           - ipserver:20:20
+           - ipserver:21:21
+           - 47400-47470:47400-47470
+       volumes:
+          - /myftp/:/home/vsftpd
